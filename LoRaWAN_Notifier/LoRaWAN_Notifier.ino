@@ -1,7 +1,19 @@
+/**
+   @file LoRaWAN_Notifier.ino
+   @author rakwireless.com
+   @brief This example shows how to playback a sound file when specific LoRaWAN msg is received.
+   @note Running this example may requires a Battery for powering the board.   
+   You will need to send the message "B1" or "G1" = Base64 (QjE= and RzE= respectively) to trigger the notification.
+   @version 0.1
+   @date 2022-oct-11
+   @copyright Copyright (c) 2022
+*/
+
+
 #include <Arduino.h>
 #include "LoRaWan-Arduino.h" //http://librarymanager/All#SX126x
 #include <SPI.h>
-#include "audio.h"
+#include "audio.h"           //http://librarymanager/All#RAKwireless-Audio-Library
 #include "sound.h"
 
 #include <stdio.h>
@@ -57,7 +69,7 @@ static lmh_callback_t g_lora_callbacks = {BoardGetBatteryLevel, BoardGetUniqueId
                                           lorawan_unconf_finished, lorawan_conf_finished
                                          };
 //OTAA keys !!!! KEYS ARE MSB !!!!
-uint8_t nodeDeviceEUI[8] = {0xAC, 0x1F, 0x09, 0xFF, 0xFE, 0x05, 0x41, 0x5E};
+uint8_t nodeDeviceEUI[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; // The one printed on your core
 uint8_t nodeAppEUI[8] = {0x60, 0x81, 0xF9, 0x21, 0xC4, 0x76, 0x07, 0xE3};
 uint8_t nodeAppKey[16] = {0xC1, 0xDA, 0x16, 0x1A, 0x25, 0x69, 0x92, 0xDD, 0xB0, 0xC5, 0xDE, 0xBA, 0x5C, 0x71, 0x68, 0x74};
 
