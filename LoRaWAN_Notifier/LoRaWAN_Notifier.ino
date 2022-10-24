@@ -69,7 +69,7 @@ static lmh_callback_t g_lora_callbacks = {BoardGetBatteryLevel, BoardGetUniqueId
                                           lorawan_unconf_finished, lorawan_conf_finished
                                          };
 //OTAA keys !!!! KEYS ARE MSB !!!!
-uint8_t nodeDeviceEUI[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; // The one printed on your core
+uint8_t nodeDeviceEUI[8] = {0xAC, 0x1F, 0x09, 0xFF, 0xFE, 0x05, 0x41, 0x95}; // The one printed on your core
 uint8_t nodeAppEUI[8] = {0x60, 0x81, 0xF9, 0x21, 0xC4, 0x76, 0x07, 0xE3};
 uint8_t nodeAppKey[16] = {0xC1, 0xDA, 0x16, 0x1A, 0x25, 0x69, 0x92, 0xDD, 0xB0, 0xC5, 0xDE, 0xBA, 0x5C, 0x71, 0x68, 0x74};
 
@@ -137,9 +137,6 @@ void setup()
     while (1); // do nothing
   }
   audio_length = sizeof(sound_buff) / 2; //The sampling bit depth is 16 bits contains two bytes
-  Serial.println("=====================================");
-  Serial.println("start play");
-  Serial.println("=====================================");
 
   // Initialize LoRa chip.
   lora_rak11300_init();
